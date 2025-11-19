@@ -9,6 +9,7 @@ function openNoteDialog() {
 
     // this opens the dialog
     dialog.showModal();
+    titleInput.focus();
 
 }
 
