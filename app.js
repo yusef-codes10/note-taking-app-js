@@ -56,3 +56,5 @@ themeToggleBtn.addEventListener('click',
         console.log('dark theme btn');
     }
 )
+
+// TODO next render everything to the page
