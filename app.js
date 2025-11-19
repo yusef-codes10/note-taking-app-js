@@ -4,6 +4,9 @@ let notes = [];
 
 function saveNote(event) {
     event.preventDefault();  // stop form from refreshing the page
+
+    const title = document.getElementById('noteTitle').value.trim();
+    const conten = document.getElementById('noteContent').value.trime();
 }
 
 function openNoteDialog() {
