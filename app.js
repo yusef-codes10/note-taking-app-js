@@ -6,7 +6,7 @@ function saveNote(event) {
     event.preventDefault();  // stop form from refreshing the page
 
     const title = document.getElementById('noteTitle').value.trim();
-    const content = document.getElementById('noteContent').value.trime();
+    const content = document.getElementById('noteContent').value.trim();
 
     notes.unshift({         // we use unshiift for adding a new eleemnt in the start
         id: generateId(),
@@ -18,6 +18,10 @@ function saveNote(event) {
 
 function generateId() {
     return Date.now().toString();
+}
+
+function saveNotes() {
+    localStorage.setItem('quickNotes', JSON.stringify(notes)); //store only notes
 }
 
 function openNoteDialog() {
