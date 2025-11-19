@@ -7,4 +7,22 @@ function openNoteDialog() {
     const titleInput = document.getElementById('titleInput');
     const contentInput = document.getElementById('contentInput');
 
+    // this opens the dialog
+    dialog.showModal();
+
 }
+
+function closeNoteDialog() {
+    const dialog = document.getElementById('noteDialog');
+    
+    
+    dialog.close();
+}
+
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+themeToggleBtn.addEventListener('click', 
+    () => {
+        document.body.classList.toggle('dark-theme');
+        console.log('dark theme btn');
+    }
+)
