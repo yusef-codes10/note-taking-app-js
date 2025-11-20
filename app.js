@@ -17,6 +17,39 @@ function saveNote(event) {
   saveNotes();
 }
 
+// TODO next render everything to the page
+
+// render notes to the pages
+function renderNotes() {
+  const notesContainer = document.getElementById("notesContainer");
+
+  if (notes.length === 0) {
+    notesContainer.innerHTML = `
+      <div class="empty-state">
+        <h2>No notes yet</h2>
+        <p>Create your first note to get started</p>
+        <button class="add-note-btn" onclick="openNoteDialog()">+ Add your first note</button>
+      </div>`;
+    return; // exit if there are notes
+  }
+
+  notesContainer.innerHTML = notes
+    .map(
+      (note) => `
+      <div class="note-card">
+        <h3 class="note-title">${note.title}</h3>
+        <p class="note-content">${note.content}</p>
+      </div>
+    `
+    )
+    .join(''); // join all strings into one big HTML
+}
+
+function loadNotes() {
+  const savedNotes = localStorage.getItem("quickNotes"); // use the ecact same key 'quickNotes'
+  return savedNotes ? JSON.parse(savedNotes) : [];
+}
+
 function generateId() {
   return Date.now().toString();
 }
@@ -42,6 +75,9 @@ function closeNoteDialog() {
 // every time the website loads, it's gonna call this
 // we have to use the function keyword, this refers to the document
 document.addEventListener("DOMContentLoaded", () => {
+  // call the renderNotes() function each time the DOM updates
+  notes = loadNotes(); // return the notes from local storage
+  renderNotes();
   document.getElementById("noteForm").addEventListener("submit", saveNote);
   document
     .getElementById("noteDialog")
@@ -57,27 +93,3 @@ themeToggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme");
   console.log("dark theme btn");
 });
-
-// TODO next render everything to the page
-
-// render notes to the pages
-function renderNotes() {
-  const notesContainer = document.getElementById("notesContainer");
-
-  if (notes.length === 0) {
-    // check if notes is empty
-    notesContainer.innerHTML = `  <div class="empty-state">
-      <h2>No notes yet</h2>
-      <p>Create your first note to get started</p>
-      <button class="add-note-btn" onclick="openNoteDialog()">+ Add your first add-note-btn</button>
-    </div>`;
-    return; // to exist if there are notes
-  }
-  notesContainer.innerHTML = notes.map((note) => {
-    `    <div class="note-card">
-      <h3 class="note-title">${note.title}</h3>
-      <p class="note-content"${note.content}</p>
-    </div>
-        `.join();  // join turns the new array returned by map to a single string
-  });
-}
