@@ -67,3 +67,11 @@ titleInput1.addEventListener('input', function(jake) {
     // e.target.value gives the current value of the input
     dialogTitle1.textContent = jake.target.value;
 });
+
+// ! change color function
+const switchBtn = document.getElementById('switchBtn');
+switchBtn.addEventListener('click',(e) => {
+    // e.target.style.backgroundColor = 'green';
+    console.log(e.target);
+    e.target.style.backgroundColor = 'green';
+} )
