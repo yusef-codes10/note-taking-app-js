@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Quick Notes</title>
     <script src="/app.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Quick Notes</h1>
-        <div>
-            <button class="add-note-btn" onclick="openNoteDialog()">Add Note</button>
-            <button id="themeToggleBtn" class="theme-toggle-btn">🌙</button>
-        </div>
+      <h1>Quick Notes</h1>
+      <div>
+        <button class="add-note-btn" onclick="openNoteDialog()">
+          Add Note
+        </button>
+        <button id="themeToggleBtn" class="theme-toggle-btn">🌙</button>
+      </div>
     </header>
     <main id="notesContainer" class="notes-grid"></main>
     <dialog id="noteDialog">
-        <!-- ! a small window that we can open & close using js -->
-         <div class="dialog-content">
-            <div class="dialog-header">
-                <h2 class="dialog-title" id="dialogTitle">Add New Note</h2>
-                <button class="close-btn" onclick="closeNoteDialog()">x</button>
-            </div>
+      <!-- ! a small window that we can open & close using js -->
+      <div class="dialog-content">
+        <div class="dialog-header">
+          <h2 class="dialog-title" id="dialogTitle">Add New Note</h2>
+          <button class="close-btn" onclick="closeNoteDialog()">x</button>
+        </div>
 
-            <form action="" id="noteForm">
-                <div class="form-group">
-                    <label for="noteTitle" class="form-label">title</label>
-                    <input type="text" id="noteTitle" class="form-input" placeholder="Enter note title..." required>
-                </div>
-                <div class="form-group">
-                    <label for="notecontent" class="form-label"></label>
-                    <textarea class="form-textarea" id="noteContent" placeholder="Write your note here..." required></textarea>
-                </div>
+        <form action="" id="noteForm">
+          <div class="form-group">
+            <label for="noteTitle" class="form-label">title</label>
+            <input
+              type="text"
+              id="noteTitle"
+              class="form-input"
+              placeholder="Enter note title..."
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="notecontent" class="form-label"></label>
+            <textarea
+              class="form-textarea"
+              id="noteContent"
+              placeholder="Write your note here..."
+              required
+            ></textarea>
+          </div>
 
-                <div class="dialog-actions">
-                    <button type="button" class="cancel-btn" onclick="closeNoteDialog()">Cancel</button>
-                    <button type="submit" class="save-btn">Save Note</button>
-                </div>
-            </form>
-         </div>
+          <div class="dialog-actions">
+            <button
+              type="button"
+              class="cancel-btn"
+              onclick="closeNoteDialog()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="save-btn">Save Note</button>
+          </div>
+        </form>
+      </div>
     </dialog>
-</body>
+  </body>
 </html>
