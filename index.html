@@ -18,7 +18,7 @@
     <header>
       <h1>Quick Notes</h1>
       <div>
-        <button class="add-note-btn" id="switchBtn">
+        <button class="add-note-btn" onclick="openNoteDialog()">
           Add Note
         </button>
         <button id="themeToggleBtn" class="theme-toggle-btn">🌙</button>
@@ -35,7 +35,7 @@
 
         <form action="" id="noteForm">
           <div class="form-group">
-            <label for="noteTitle" class="form-label">title</label>
+            <label for="noteTitle" class="form-label" id="labelTitle">title</label>
             <input
               type="text"
               id="noteTitle"

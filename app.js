@@ -58,20 +58,3 @@ themeToggleBtn.addEventListener('click',
 )
 
 // TODO next render everything to the page
-
-// ! creating an input event when the user types
-const titleInput1 = document.querySelector('#noteTitle');
-const dialogTitle1 = document.querySelector('#dialogTitle');
-
-titleInput1.addEventListener('input', function(jake) {
-    // e.target.value gives the current value of the input
-    dialogTitle1.textContent = jake.target.value;
-});
-
-// ! change color function
-const switchBtn = document.getElementById('switchBtn');
-switchBtn.addEventListener('click',(e) => {
-    // e.target.style.backgroundColor = 'green';
-    console.log(e.target);
-    e.target.style.backgroundColor = 'green';
-} )
