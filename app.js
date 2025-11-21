@@ -1,6 +1,7 @@
 // create a new array for notes
 // each not will be saved as an object inside that array
 let notes = [];
+let editingNoteId = null
 
 function saveNote(event) {
   event.preventDefault(); // stop form from refreshing the page
@@ -78,13 +79,30 @@ function saveNotes() {
   localStorage.setItem("quickNotes", JSON.stringify(notes)); //store only notes
 }
 
-function openNoteDialog() {
-  const dialog = document.getElementById("noteDialog");
-  const titleInput = document.getElementById("noteTitle");
-  const contentInput = document.getElementById("contentInput");
-  // this opens the dialog
-  dialog.showModal();
-  titleInput.focus();
+function openNoteDialog(noteId = null) { // ! by default it's null
+  const dialog = document.getElementById('noteDialog');
+  const titleInput = document.getElementById('noteTitle');
+  const contentInput = document.getElementById('noteContent');
+
+  if(noteId) {
+    // Edit Mode
+    const noteToEdit = notes.find(note => note.id === noteId)
+    editingNoteId = noteId
+    document.getElementById('dialogTitle').textContent = 'Edit Note'
+    titleInput.value = noteToEdit.title
+    contentInput.value = noteToEdit.content
+  }
+  else {
+    // Add Mode
+    editingNoteId = null
+    document.getElementById('dialogTitle').textContent = 'Add New Note'
+    titleInput.value = ''
+    contentInput.value = ''
+  }
+
+  dialog.showModal()
+  titleInput.focus()
+
 }
 
 function closeNoteDialog() {
