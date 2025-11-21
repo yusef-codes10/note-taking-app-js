@@ -60,7 +60,7 @@ function saveNotes() {
 
 function openNoteDialog() {
   const dialog = document.getElementById("noteDialog");
-  const titleInput = document.getElementById("titleInput");
+  const titleInput = document.getElementById("noteTitle");
   const contentInput = document.getElementById("contentInput");
   // this opens the dialog
   dialog.showModal();
@@ -77,14 +77,19 @@ function closeNoteDialog() {
 document.addEventListener("DOMContentLoaded", () => {
   // call the renderNotes() function each time the DOM updates
   notes = loadNotes(); // return the notes from local storage
+  console.log(
+    document.getElementById("noteForm")
+  );
   renderNotes();
   document.getElementById("noteForm").addEventListener("submit", saveNote);
   document
     .getElementById("noteDialog")
     .addEventListener("click", function (event) {
-      if (event.target === this) {
+      if (event.target === this) {  // TODO have to understand Event Bubbling
         closeNoteDialog();
       }
+        console.log(this);
+        console.log(event.target);
     });
 });
 
