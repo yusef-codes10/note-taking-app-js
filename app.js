@@ -8,7 +8,7 @@ function saveNote(event) {
   const title = document.getElementById("noteTitle").value.trim();
   const content = document.getElementById("noteContent").value.trim();
 
-  notes.unshift({
+  notes.push({  // push to put in the end
     // we use unshiift for adding a new eleemnt in the start
     id: generateId(),
     title: title,
