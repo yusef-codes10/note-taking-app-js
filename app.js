@@ -18,6 +18,12 @@ function saveNote(event) {
   renderNotes();  // ! re-render the notes so you don't have to update browser
 }
 
+function deleteNote(noteID) {   // noteID as an arg
+  notes = notes.filter( note => note.id != noteID);
+  saveNotes();
+  renderNotes();
+}
+
 // TODO next render everything to the page
 
 // render notes to the pages
