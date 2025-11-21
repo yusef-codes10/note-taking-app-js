@@ -9,12 +9,25 @@ function saveNote(event) {
   const title = document.getElementById("noteTitle").value.trim();
   const content = document.getElementById("noteContent").value.trim();
 
-  notes.push({  // push to put in the end
-    // we use unshiift for adding a new eleemnt in the start
-    id: generateId(),
-    title: title,
-    content: content,
-  });
+  if (editingNoteId) {
+    // Update existing note
+    const noteIndex = notes.findIndex(note => note.id === editingNoteId);
+    notes[noteIndex] = {
+      ...notes[noteIndex],    // overkill for now but usefull when expanding
+      title: title,
+      content: content
+    }
+
+  } else {
+    notes.push({  // push to put in the end
+      // we use unshiift for adding a new eleemnt in the start
+      id: generateId(),
+      title: title,
+      content: content,
+    });
+    // Add new note
+  }
+
   saveNotes();
   renderNotes();  // ! re-render the notes so you don't have to update browser
 }
