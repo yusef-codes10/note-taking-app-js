@@ -15,6 +15,7 @@ function saveNote(event) {
     content: content,
   });
   saveNotes();
+  renderNotes();  // ! re-render the notes so you don't have to update browser
 }
 
 // TODO next render everything to the page
@@ -34,7 +35,7 @@ function renderNotes() {
   }
 
   notesContainer.innerHTML = notes
-    .map(
+    .map(                 // TODO have to understand this too 
       (note) => `
       <div class="note-card">
         <h3 class="note-title">${note.title}</h3>
